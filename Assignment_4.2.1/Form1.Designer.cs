@@ -44,6 +44,7 @@
             studentDataHeader = new Label();
             starPupilBtn = new Button();
             exitBtn = new Button();
+            welcomeBtn = new Label();
             SuspendLayout();
             // 
             // LoginPopupBtn
@@ -214,11 +215,22 @@
             exitBtn.Visible = false;
             exitBtn.Click += exitBtn_Click;
             // 
+            // welcomeBtn
+            // 
+            welcomeBtn.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            welcomeBtn.Location = new Point(221, 23);
+            welcomeBtn.Name = "welcomeBtn";
+            welcomeBtn.Size = new Size(335, 33);
+            welcomeBtn.TabIndex = 17;
+            welcomeBtn.TextAlign = ContentAlignment.MiddleCenter;
+            welcomeBtn.Visible = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(welcomeBtn);
             Controls.Add(exitBtn);
             Controls.Add(starPupilBtn);
             Controls.Add(studentDataHeader);
@@ -236,7 +248,7 @@
             Controls.Add(listBoxStudents);
             Controls.Add(LoginPopupBtn);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Learning Management System";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -258,5 +270,6 @@
         private Label studentDataHeader;
         private Button starPupilBtn;
         private Button exitBtn;
+        private Label welcomeBtn;
     }
 }

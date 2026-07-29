@@ -1,22 +1,26 @@
+using Assignment_4._2._1.Services;
 using System.ComponentModel;
+using System.Diagnostics.Eventing.Reader;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Assignment_4._2._1
 {
     public partial class Form1 : Form
     {
+        // Declared Binding list and one instance of teacher class 
         BindingList<Student> students = new BindingList<Student>();
-        private Teacher teacher1;
+        private Teacher teacher1 = new Teacher()
+        {
+            FirstName = "Patsy",
+            LastName = "Stores",
+            Password = "admin",
+            UserName = "teacher"
+        };
+
+
         public Form1()
         {
             InitializeComponent();
-
-            teacher1 = new Teacher()
-            {
-                FirstName = "Patsy",
-                LastName = "Stores",
-                Password = "admin",
-                UserName = "teacher"
-            };
 
             listBoxStudents.DataSource = students;
             listBoxStudents.DisplayMember = "FullName";
@@ -135,6 +139,8 @@ namespace Assignment_4._2._1
             listHeader.Visible = true;
             starPupilBtn.Visible = true;
             exitBtn.Visible = true;
+            welcomeBtn.Visible = true;
+            welcomeBtn.Text = $"Welcome {teacher1.FirstName} {teacher1.LastName}";
         }
         public void ShowStudent(Student s)
         {
@@ -158,7 +164,7 @@ namespace Assignment_4._2._1
         }
     }
 
-    public enum Role { Teacher, Student };
+    public enum Role { None, Teacher, Student };
 
     public abstract class User
     {
