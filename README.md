@@ -41,4 +41,4 @@
         - Use StreamWriter to create a text file with the Star Pupil's data
 ```
 
-## Planned Development Time: ~*2.5 hours*
+## Planned Development Time: ~*4 hours*
