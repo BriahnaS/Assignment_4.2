@@ -9,14 +9,7 @@ namespace Assignment_4._2._1
     {
         // Declared Binding list and one instance of teacher class 
         BindingList<Student> students = new BindingList<Student>();
-        private Teacher teacher1 = new Teacher()
-        {
-            FirstName = "Patsy",
-            LastName = "Stores",
-            Password = "admin",
-            UserName = "teacher"
-        };
-
+        private Teacher teacher1 = new Teacher() {FirstName = "Patsy", LastName = "Stores", Password = "admin", UserName = "teacher"};
 
         public Form1()
         {
@@ -208,8 +201,20 @@ namespace Assignment_4._2._1
 
     public class Student : User
     {
+        private double _gpa;
         public string StudentId { get; set; }
-        public double GPA { get; set; }
+        public double GPA
+        {
+            get => _gpa;
+            set
+            {
+                if (value < 0.0 || value > 4.0)
+                {
+                    MessageBox.Show("Please enter a valid GPA between 0.0 and 4.0.");
+                }
+                _gpa = Math.Clamp(value, 0.0, 4.0);
+            }
+        }
         public string FullName => $"{LastName}, {FirstName}";
 
     }
